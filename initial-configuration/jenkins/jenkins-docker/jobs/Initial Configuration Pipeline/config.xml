@@ -72,7 +72,7 @@ def retrieveBuildSpecId;
 def pipelineBuildId;
 def build_hashes = {};
 pipeline {
-    agent any 
+    agent any
     stages {
         stage(&apos;Set Project Specific Repositories&apos;) {
             steps {
@@ -85,7 +85,7 @@ pipeline {
                 }
             }
         }
-        stage(&apos;Initial Config and Build&apos;) { 
+        stage(&apos;Initial Config and Build&apos;) {
             steps {
                 parallel (
                     dbMigrate: {
@@ -102,7 +102,8 @@ pipeline {
                         script {
                             def result = build job: &apos;Configure Auth0 Integration&apos;, parameters: [
                                 [$class: &apos;StringParameterValue&apos;, name: &apos;AUTH0_CLIENT_ID&apos;, value:env.AUTH0_CLIENT_ID],
-                                [$class: &apos;StringParameterValue&apos;, name: &apos;AUTH0_CLIENT_SECRET&apos;, value: env.AUTH0_CLIENT_SECRET]]
+                                [$class: &apos;StringParameterValue&apos;, name: &apos;AUTH0_CLIENT_SECRET&apos;, value: env.AUTH0_CLIENT_SECRET],
+                                [$class: &apos;StringParameterValue&apos;, name: &apos;AUTH0_TENANT&apos;, value: env.AUTH0_TENANT]]
                         }
                     },
 		    emailConfig: {
@@ -117,7 +118,7 @@ pipeline {
                 )
             }
         }
-        stage(&apos;Post Migration Configs&apos;) { 
+        stage(&apos;Post Migration Configs&apos;) {
             steps {
                 parallel (
                     adminConfig: {
@@ -140,7 +141,7 @@ pipeline {
                 )
             }
         }
-        stage(&apos;Load Demo Data and Deploy&apos;) { 
+        stage(&apos;Load Demo Data and Deploy&apos;) {
             steps {
  		script {
                     def result = build job: &apos;Retrieve Build Spec&apos;
