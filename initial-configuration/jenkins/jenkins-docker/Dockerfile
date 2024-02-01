@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.421-jdk11
+FROM jenkins/jenkins:2.440-jdk11
 
 COPY plugins.yml /usr/share/jenkins/ref/plugins.yml
 
@@ -17,8 +17,6 @@ RUN apt-get update
 RUN curl -fsSL https://get.docker.com | sh
 
 RUN docker --version
-
-RUN apt-get -y -t stretch-backports install openjdk-11-jdk-headless
 
 RUN apt-get -y install maven
 

@@ -5,9 +5,6 @@ plugins:
   - artifactId: timestamper
     source:
       version: 1.26
-  - artifactId: credentials-binding
-    source:
-      version: 636.v55f1275c7b_27
   - artifactId: email-ext
     source:
       version: 2.99
@@ -35,9 +32,6 @@ plugins:
   - artifactId: matrix-auth
     source:
       version: 3.2
-  - artifactId: mailer
-    source:
-      version: 463.vedf8358e006b_
   - artifactId: antisamy-markup-formatter
     source:
       version: 159.v25b_c67cd35fb_
@@ -61,7 +55,7 @@ plugins:
       version: 694.vc02a_69c9787f
   - artifactId: cloudbees-folder
     source:
-      version: 6.848.ve3b_fd7839a_81
+      version: 6.901.vb_4c7a_da_75da_3
   - artifactId: list-git-branches-parameter
     source:
       version: 0.0.13
